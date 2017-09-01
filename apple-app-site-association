@@ -1,0 +1,15 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "88A9R54RLQ.com.qinlin.ahaschool”,
+                "paths": [ "*"]
+            },
+            {
+                "appID": "ABCD1234.com.apple.wwdc",
+                "paths": [ "*" ]
+            }
+        ]
+    }
+}
