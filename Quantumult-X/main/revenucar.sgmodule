@@ -1,10 +1,170 @@
-#!name=解锁集合
-#!desc=Mr.Eric转载注明出处
-#!说明=具体解锁APP请移步https://t.me/Mr_Eric_iOS
+#此库仅兼容Quantumultx订阅，别的不支持
 
-[MITM]
-hostname = %APPEND% i.weread.qq.com,api.v1.esread.com
-[Script]
-微信读书卡会员 = type=http-response,pattern= ^https:\/\/i\.weread\.qq\.com\/pay\/memberCardSummary,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/txwxds.js
-向日葵阅读vip = type=http-response,pattern= ^https:\/\/api\.v1\.esread\.com,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/xiangrikui.js
-酷我音乐vip = type=http-response,pattern=https?:\/\/.*\.(kuwo|lrts)\.(cn|me)\/(a\.p|music\.pay|(vip\/(v2|enc)\/(theme|user\/vip))|(EcomResource|(Mobile)?Ad)Serv(er|ice)).*,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/nameking77/Qx/main/rewrite/kw.js,script-update-interval=0
+/*****************
+
+脚本作者：伟人
+联系作者QQ:55749353
+更新时间：2022-00-00
+问题反馈：QQ+55749353
+作者忠告：所有脚本仅限内部测试、学习、开发。禁止用于商业用途！
+QQ会员群：添加作者QQ
+TG反馈群：https://t.me/WeiRenOvO
+TG频道群：https://t.me/WeiRenQAQ
+
+*******************/
+#喜马拉雅 (如果无效hostname添加个*)
+^http[s]?:\/\/((.+ximalaya.+)|(.+xmcdn.+))mobile-play.+$ url script-response-header https://raw.githubusercontent.com/WeiRen0/Scripts/main/xmly.js
+^http[s]?:\/\/.+ximalaya.+(product/info|/mobile-user/v2/homePage|/vip/v1/recommand/ts|mobile-playpage/playpage/tabs|/mobile-album/album/page/ts|mobile/v1/album/track/ts|product/promotion/v./whole/album/\d+/price/dynamic/ts|business-vip-presale-mobile-web/page/ts).*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/ximalaya.js
+#哔哩哔哩(已不在此库更新!请添加作者)
+^http[s]?:\/\/((app|api)\.(\w{2,15})?\.(com|cn)).*player\.(v3|v2|v1).Play(URL|View).*$ url script-request-header https://raw.githubusercontent.com/WeiRen0/Scripts/main/blbl.js
+#哔站1080p+解锁
+^http[s]?:\/\/.+bilibili.+((pgc\/player\/api\/playurl)|(x\/v2\/account\/myinfo\?)|(x\/v2\/account/mine\?)).*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/BLBLHD.js
+#醒图(目前稳定)
+^http[s]?:\/\/commerccd-api.faceu.mobi\/commerce\/v1\/subscription\/user_info.*$ url script-request-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/Xuid.js
+^http[s]?:\/\/.+((retouchpics)|(faceu)).(com|cn|mobi)\/.+user.*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/Xtu.js
+#全民幸福社
+^http:\/\/api\.qmxfs\.com\/v003/user\/queryAccountInfo\.json url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/qmxfs.js
+#樊登读书
+^http[s]?:\/\/.+dushu.+(v101|v100|program/v100)\/(content|play/duration|index|list|userInfo|vipInfo|info|ceiltip|mainList|getMarketInfoByType) url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/FD.js
+#网易云解锁VIP直接听
+^http[s]?:\/\/.+music.+(player/url|playlist|entrance|/eapi/search/).*$ url script-request-header https://raw.githubusercontent.com/WeiRen0/Scripts/main/wyun.js
+#酷我音乐
+^http[s]?:\/\/.*kuwo.*(/vip/enc/user/vip|/a.p|/vip/v2/user/vip|/vip/v2/sysinfo|/vip/v2/theme|AdService/kaiping/|/music.pay|player/getStyleListByModel).*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/kw.js
+#keep
+^http[s]?:\/\/.+keep.+(athena/v7/people/my|/ad/preload|details|preview|/start|liveStream/schedule|course/v3/plans|/home/prime/page).*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/keep.js 
+#氧气听书
+^http[s]?:\/\/api.o2ting.com\/api\/V2.+(ListByIndex|Detail|user/GetUserInfo).json url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/yqts.js
+#云听解锁
+^http[s]?:\/\/(getway|ytapi).radio.(cn|com)(/app[a-z0-9/]+|/ytsrv/srv/appUser/getUserInfoH5).*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/yunt.js
+^http:\/\/.+/O2SysMedia/AdvertAudio/DearCustomer.mp3 url reject
+#百度网盘在线播放速度，清晰度
+^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/panda.js
+#悟饭{趣玩|游戏厅|酷玩盒|掌悦}
+^http[s]?:\/\/.+user/ios_store_pay_edition.+(check_members_identity_v2|get_member_info) url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/wufan.js
+#知音漫客
+^http[s]?:\/\/.+.zymk.+(getcomicinfo|getuserinfo|gift_givegifts|v5/addgold|getappadvertise).*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/zymk.js
+#百度网盘
+^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/panda.js
+#蜗牛助眠
+^http[s]?:\/\/((.+snailsleep)|(snailsleep)).net.*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/woniu.js
+#彩云天气
+^http[s]?:\/\/biz\.caiyunapp\.com\/v2\/user.*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/cytq.js
+#喜马拉雅广告
+
+#####开车软件###后续可能添加别的##
+#XBoy🚗官网: https://www.xboy6.live/?ivcode=U5K9 。ipa下载: https://wwr.lanzoui.com/xbss
+^http[s]?:\/\/.+((xo2xo)|(hnyiya)).(live|com)\/api\/(Account\/IndexDetail|movie\/DetailInfo|movie\/watch).*$ url script-response-body https://raw.githubusercontent.com/WeiRen0/Scripts/main/Xboy.js
+^http[s]?:\/\/.+live\/api\/movie\/colllist\/1\/10 url 302 https://m.xo2xo.live/api/movie/colllist/1/5000
+#色中色🚗下载地址- https://oznias.fit/?pc=47QNSE, 
+^http[s]?:\/\/.+sez.+m3u8.+m3u8.+ url script-request-header https://raw.githubusercontent.com/WeiRen0/Scripts/main/szs.js
+#69萝莉酱🚗在线观看地址- https://h5.l6rwut.com (下载地址https://69luolic.com/?us=283W7F)
+^http[s]?:\/\/h5.+((rwut)|(luoli)|(cmw)).+(com|cn)\/h5\/(movie/detail|search/movie).*$ url script-request-header https://raw.githubusercontent.com/WeiRen0/Scripts/main/69luolij.js
+^http[s]?:\/\/commerce-api.faceu.mobi\/commerce\/v1\/subscription\/user_info.*$ url script-request-header https://raw.githubusercontent.com/WeiRen0/Scripts/main/byxt.js
+#绳师SM🚗在线观看地址-https://h5.sssmapp.com/#/?
+^http[s]?:\/\/s400\.sssm\.info\/api\/videos\/.*$ url script-request-header https://raw.githubusercontent.com/WeiRen0/LSPP/main/sshism.js
+#AnTv🚗在线观看地址-https://h5.tvtm88.com/#/?
+^http[s]?:\/\/.+antvapp.+\/api\/videos\/.*$ url script-request-header https://raw.githubusercontent.com/WeiRen0/LSPP/main/antv.js
+#51漫画🚗-在线观看地址 - (开圈叉无痕浏览打开后面网站)https://51h16.com
+^http[s]?:\/\/51h[0-9]+.(com|cn)\/h5\/system\/info.*$ url request-body .+ request-body gdC+N8tg08B0aFnzU3dDbdf4gImKx2JnpbhYCU89SfPmbm28WePm9CZ1FQGRrwzwolqlUtEbrPEmwjlhauiqPHSu98mfWeaDS1Pnr2DNY+KoRYqwpoYPtuapiW7/MT+bti88Cr7H2Q3ucweEubGPxw==
+^http:\/\/api\.qmxfs\.com\/v003\/subject\/subjectDetail\.json url request-body "isBuy":[0-9] request-body "isBuy":1
+^http[s]?:\/\/.+dushu.+(v101/content|book/v100/info|/play/duration|/v100/index).*$ url request-body "token":"[^"]+ request-body "token":"202211300UmYVztjEkRtAo2575X
+
+
+
+###小程序破解规则###
+#疯狂消消消+无限钻石金币
+^https:\/\/wxsdk-data\.d3games\.com\/game\/merge\/get url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/fkxxx.js
+#熊猫餐厅+无限竹子珍珠
+^https:\/\/xmct\.qszhg\.6hwan\.com\/user\/get_player_data url script-request-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/xmct.js
+#三国创业记+无限钻石
+^https:\/\/www\.weikeduo\.top:8646\/ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/sgcyj.js
+#实况钓鱼+无限金币
+^https:\/\/dev\.fish\.17fish\.cool:6008\/api\/livefishing\/v10\/getProgress url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/skdy.js
+#植物反击战+无限钻石金币
+^https:\/\/gjzwwx\.game\.jingyougz\.com\/api\/v1\/users\/login url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/zwfjz.js
+#房东模拟器+无限钞票钻石
+^https:\/\/simh5\.soloknight\.xyz:9443\/FDH5Server\/game\/wx\/loadArchive url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/fdmlq.js
+#土豆地下城+无限钻石 小程序
+^https:\/\/www\.njmc\.vip:5051\/download_savedata url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/tddxc.js
+#三国全明星+无限兑换元宝
+^https:\/\/wx-xmlb\.lanfeitech\.com\/api\/api\/exchange_cdkey url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/sgqmx.js
+#消灭病毒+无限钻石金币
+^https:\/\/wx-bingdu\.lanfeitech\.com\/api\/archive\/get url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/xmbd.js
+#微信小游戏天天钓鱼+解锁无限金币
+^https:\/\/ttdy\.aslk2018\.com\/v2\/game\/download url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/ttdy.js
+#大佬别嚣张+无限金币钻石
+^https:\/\/yyqq1\.youngwingtec\.com:8777\/guest_login url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/dlbxz.js
+#进站请刷卡+无限钻石金币
+^https:\/\/miniapi\.52muyou\.com\/api\/init\/METRO url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/jzqsk.js
+#神弓守护者+无限钻石金币
+^https:\/\/xiaobai\.mcfifa\.cn\/data_sjdata? url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/sgsfz.js
+#超神小队——解锁金币
+^https:\/\/gjyklslb\.mantianfei\.net url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/csxd.js
+
+
+
+
+
+###软件/工具###
+#网易有道词典*+*解锁*VIP
+^https:\/\/dict\.youdao\.com\/vip\/user\/status url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wyydcd.js
+#微信读书卡会员
+^https:\/\/i\.weread\.qq\.com\/pay\/memberCardSummary url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/txwxds.js
+#向日葵阅读vip
+^https:\/\/api\.v1\.esread\.com url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/xiangrikui.js
+#万能变声器
+^https:\/\/www\.40sishi\.com\/voice\/user\/profile url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wnbsq.js
+#扫描全能王vip
+^https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/smqnw.js
+#WPS Office+解锁VIP
+^https?:\/\/account\.wps\.cn\/api\/users url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wps.js
+#涩涩视频——去除所有广告 下载地址：https://48478.xyz/ 网页在线:https://files.yuchenglw.com
+^https://files.yuchenglw.com url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ghs/sssp.js
+#迅雷-你的专享云盘+解锁VIP https://is.gd/wsJBR4
+https://xluser-ssl.xunlei.com/xluser.core.login/v3/getuserinfo url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/xunlei.js
+#https抓包+解锁订阅
+^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/https.js
+#Picsew滚动截图+解锁订阅 http://mtw.so/5AOWu4
+^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Picsew.js
+#微信自动阅读+薅羊毛
+^https?://mp\.weixin\.qq\.com/s\?.* url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wechat.js
+#充电助手-+解锁VIP https://is.gd/MTJ37Q
+^https:\/\/api\.yonekura\.cn\/3\.7\.0\/uicommon\/getuser url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/cdzs.js
+#百度文库☆解锁VIP文档阅读权限 https://is.gd/NYKRaD
+^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/bdwk.js
+#Retake-Al照片修复+解锁订阅 下载地址：https://is.gd/Q0z2vn
+^https:\/\/buy\.itunes\.apple\.com\/verifyReceipt url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Retake.js
+#美图秀秀+解锁VIP 
+^https:\/\/api\.xiuxiu\.meitu\.com\/v1 url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/mtxx.js
+#最美证件照+解锁VIP 下载地址：http://mtw.so/6rLBB8
+^https:\/\/fufei\.fengyunsoft\.cn\/api\/client\/info url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/zmzjz.js
+#探花视频+解锁VIP—9.27更新 下载地址：https://tanhua.app/?c=MHKKLKOWI
+^https:\/\/jiliapi\.xndplqq\.cn\/api\/member\/info url script-request-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ghs/thsp.js
+#网易蜗牛读书+解锁VIP 下载地址：https://is.gd/OWWJ7o
+^https:\/\/p\.du\.163\.com\/gain\/readtime\/info\.json url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/yywnds.js
+#阿布睡前故事+解锁VIP 下载地址：https://is.gd/6Q6lRw
+^http:\/\/tutugushiapi\.tutuerge\.com url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/abushuiqiangushi.js
+#91视频(TF版)+解锁VIP 软件下载：https://app.glvr.xyz/i-WG4S5YY
+^https://(app|api).*.com/m_user/info url script-request-header https://raw.githubusercontent.com/89996462/Quantumult-X/main/ghs/91tv.js
+#Now冥想-助眠白噪音乐+解锁VIP内容 下载地址：https://is.gd/ejmiK9
+^https:\/\/nowapi\.navoinfo\.cn url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/Now.js
+#悟饭掌悦-发现乐趣经典+解锁VIP 下载地址：https://is.gd/Mtyg50
+http:\/\/iosv2\.cjapi\.5fun\.com\/user\/.+ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wfzy.js
+#贝乐虎全家桶——解锁VIP内容 下载地址：https://is.gd/ptiOjI
+^http[s]?:\/\/aicblhapp.ubestkid.com url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/ubestkid.js
+
+
+###游戏###
+#骰子猎人+解锁无限钻石金币 下载地址：http://mtw.so/5PsqKC
+^https:\/\/cn-rest\.dhcn\.greenergrass\.games\/v1\/sync\/Player url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/szlr.js
+#小兵别嚣张+无限钻石和金币材料 下载地址：https://is.gd/O2drxK
+http:\/\/yxgs-tf-yx\.tapenjoy\.com\/api\/user\/dl url script-request-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/xbbxz.js
+#射手大陆—9999装备等级 下载地址：https://is.gd/fOOBsc
+^https?:\/\/bowland\.bytedance\.com\/ohayoo\/lightboat\/bowland\/Equip\/GetAllEquips*? url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/yx/ssdl.js
+
+
+###主机名###
+
+hostname = *snailsleep*,180.153.*.*,pan.baidu.com,*.caiyunapp.*,*xo2xo*,*hnyiya*,sjk*,*sez*,*qmxfs*,*.ximalaya.*,*faceu*,*retouchpics*,51h*,*rwut*,*luoli*,*cmw*,*.zymk.cn,*antv*,*sssm*,iosv2.cjapi.papa21.com,*wufan*,pan.baidu.com,*.o2ting.*,*.radio.*,*keep*,*kuwo*,*xima*,*.biliapi.*,*.bilibili.*,*dushu*,*153*,*.music.163.com,ap*.intsig.net,www.40sishi.com,i.weread.qq.com,api.v1.esread.com,dict.youdao.com,www.njmc.vip,simh5.soloknight.xyz,dev.fish.17fish.cool,account.wps.cn,files.yuchenglw.com,xluser-ssl.xunlei.com,xmct.qszhg.6hwan.com,www.weikeduo.top,buy.itunes.apple.com,mp.weixin.qq.com,wxsdk-data.d3games.com,api.yonekura.cn,appwk.baidu.com,api.xiuxiu.meitu.com,wx-xmlb.lanfeitech.com,cn-rest.dhcn.greenergrass.games,fufei.fengyunsoft.cn,wx-bingdu.lanfeitech.com,jiliapi.xndplqq.cn,yxgs-tf-yx.tapenjoy.com,ttdy.aslk2018.com,p.du.163.com,tutugushiapi.tutuerge.com,yyqq1.youngwingtec.com,miniapi.52muyou.com,gjzwwx.game.jingyougz.com,appapi.*.com,api.*.com,xiaobai.mcfifa.cn,nowapi.navoinfo.cn,iosv2.cjapi.wufan88.com,iosv2.cjapi.5fun.com,bowland.bytedance.com,gjyklslb.mantianfei.net,aicblhapp.ubestkid.com
+
+
