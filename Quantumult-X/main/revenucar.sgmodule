@@ -152,7 +152,12 @@ https://xluser-ssl.xunlei.com/xluser.core.login/v3/getuserinfo url script-respon
 http:\/\/iosv2\.cjapi\.5fun\.com\/user\/.+ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/wfzy.js
 #贝乐虎全家桶——解锁VIP内容 下载地址：https://is.gd/ptiOjI
 ^http[s]?:\/\/aicblhapp.ubestkid.com url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/ubestkid.js
-
+#古诗词大全——解锁VIP 下载地址：https://is.gd/HJAs14
+^http[s]?:\/\/gushici.91iread.com url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/gscdq.js
+#中华诗词库——解锁VIP 下载地址：https://is.gd/9mxCMB
+http:\/\/api\.chuangqi\.store\/ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/zhsck.js
+#克拉壁纸+解锁订阅下载地址：https://is.gd/NwXNnb
+^https?:\/\/buy\.itunes\.apple\.com\/verifyReceipt$ url script-response-body https://raw.githubusercontent.com/89996462/Quantumult-X/main/ycdz/KLBZ.js
 
 ###游戏###
 #骰子猎人+解锁无限钻石金币 下载地址：http://mtw.so/5PsqKC
@@ -165,6 +170,6 @@ http:\/\/yxgs-tf-yx\.tapenjoy\.com\/api\/user\/dl url script-request-body https:
 
 ###主机名###
 
-hostname = *snailsleep*,180.153.*.*,pan.baidu.com,*.caiyunapp.*,*xo2xo*,*hnyiya*,sjk*,*sez*,*qmxfs*,*.ximalaya.*,*faceu*,*retouchpics*,51h*,*rwut*,*luoli*,*cmw*,*.zymk.cn,*antv*,*sssm*,iosv2.cjapi.papa21.com,*wufan*,pan.baidu.com,*.o2ting.*,*.radio.*,*keep*,*kuwo*,*xima*,*.biliapi.*,*.bilibili.*,*dushu*,*153*,*.music.163.com,ap*.intsig.net,www.40sishi.com,i.weread.qq.com,api.v1.esread.com,dict.youdao.com,www.njmc.vip,simh5.soloknight.xyz,dev.fish.17fish.cool,account.wps.cn,files.yuchenglw.com,xluser-ssl.xunlei.com,xmct.qszhg.6hwan.com,www.weikeduo.top,buy.itunes.apple.com,mp.weixin.qq.com,wxsdk-data.d3games.com,api.yonekura.cn,appwk.baidu.com,api.xiuxiu.meitu.com,wx-xmlb.lanfeitech.com,cn-rest.dhcn.greenergrass.games,fufei.fengyunsoft.cn,wx-bingdu.lanfeitech.com,jiliapi.xndplqq.cn,yxgs-tf-yx.tapenjoy.com,ttdy.aslk2018.com,p.du.163.com,tutugushiapi.tutuerge.com,yyqq1.youngwingtec.com,miniapi.52muyou.com,gjzwwx.game.jingyougz.com,appapi.*.com,api.*.com,xiaobai.mcfifa.cn,nowapi.navoinfo.cn,iosv2.cjapi.wufan88.com,iosv2.cjapi.5fun.com,bowland.bytedance.com,gjyklslb.mantianfei.net,aicblhapp.ubestkid.com
+hostname = *snailsleep*,180.153.*.*,pan.baidu.com,*.caiyunapp.*,*xo2xo*,*hnyiya*,sjk*,*sez*,*qmxfs*,*.ximalaya.*,*faceu*,*retouchpics*,51h*,*rwut*,*luoli*,*cmw*,*.zymk.cn,*antv*,*sssm*,iosv2.cjapi.papa21.com,*wufan*,pan.baidu.com,*.o2ting.*,*.radio.*,*keep*,*kuwo*,*xima*,*.biliapi.*,*.bilibili.*,*dushu*,*153*,*.music.163.com,ap*.intsig.net,www.40sishi.com,i.weread.qq.com,api.v1.esread.com,dict.youdao.com,www.njmc.vip,simh5.soloknight.xyz,dev.fish.17fish.cool,account.wps.cn,files.yuchenglw.com,xluser-ssl.xunlei.com,xmct.qszhg.6hwan.com,www.weikeduo.top,buy.itunes.apple.com,mp.weixin.qq.com,wxsdk-data.d3games.com,api.yonekura.cn,appwk.baidu.com,api.xiuxiu.meitu.com,wx-xmlb.lanfeitech.com,cn-rest.dhcn.greenergrass.games,fufei.fengyunsoft.cn,wx-bingdu.lanfeitech.com,jiliapi.xndplqq.cn,yxgs-tf-yx.tapenjoy.com,ttdy.aslk2018.com,p.du.163.com,tutugushiapi.tutuerge.com,yyqq1.youngwingtec.com,miniapi.52muyou.com,gjzwwx.game.jingyougz.com,appapi.*.com,api.*.com,xiaobai.mcfifa.cn,nowapi.navoinfo.cn,iosv2.cjapi.wufan88.com,iosv2.cjapi.5fun.com,bowland.bytedance.com,gjyklslb.mantianfei.net,aicblhapp.ubestkid.com,gushici.91iread.com,api.chuangqi.store
 
 
